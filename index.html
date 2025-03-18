@@ -15,14 +15,31 @@
     header {
       background-color: #1e3d59;
       color: white;
-      padding: 40px 20px;
+      padding: 40px 20px 20px;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: relative;
     }
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3em;
       margin: 0;
+    }
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: #1e3d59;
+      border: none;
+      padding: 6px 12px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .lang-toggle:hover {
+      background: #f0f0f0;
     }
     main {
       max-width: 900px;
@@ -59,6 +76,9 @@
     a:hover {
       color: #007bff;
     }
+    p {
+      margin: 8px 0 0;
+    }
     footer {
       text-align: center;
       padding: 20px;
@@ -71,24 +91,24 @@
 
   <header>
     <h1>Gabriela Krajewska</h1>
-    <p>Portfolio projektów</p>
+    <p id="subtitle">Portfolio projektów</p>
+    <button class="lang-toggle" onclick="toggleLang()">EN</button>
   </header>
 
   <main>
-    <h2>Moje projekty</h2>
+    <h2 id="projects-title">Moje projekty</h2>
     <ul>
       <li>
-        <a href="https://www.dropbox.com/scl/fi/odyk333jockm5j6i8ok9b/projekt-blender.rar?rlkey=xbs9fxgujhv0vajlun6vnxcg5&st=8euywe0i&dl=0" target="_blank">
+        <a href="https://www.dropbox.com/scl/fi/odyk333jockm5j6i8ok9b/projekt-blender.rar?rlkey=xbs9fxgujhv0vajlun6vnxcg5&st=8euywe0i&dl=0" target="_blank" id="proj1-title">
           🎨 Projekt 1 – Animacja w Blenderze
         </a>
-        <p> Wyrenderowana animacja 3D wykonana w Blenderze, przy użyciu modeli zewnętrznych.</p>
+        <p id="proj1-desc">Wyrenderowana animacja 3D wykonana w Blenderze, przy użyciu modeli zewnętrznych.</p>
       </li>
-      
       <li>
-        <a href="https://www.dropbox.com/scl/fi/sr1fjisn4ibqqy14xbaml/projekt-gra.rar?rlkey=v1tz6hpod1ihh02c5iydt7k4y&st=qpqfalq1&dl=0" target="_blank">
+        <a href="https://www.dropbox.com/scl/fi/sr1fjisn4ibqqy14xbaml/projekt-gra.rar?rlkey=v1tz6hpod1ihh02c5iydt7k4y&st=qpqfalq1&dl=0" target="_blank" id="proj2-title">
           💼 Projekt 2 – "Miaugicznie" gra komputerowa
         </a>
-        <p> Gra komputerowa wykonana na silniku unity, przy użyciu modeli zewnętrzynych.</p>
+        <p id="proj2-desc">Gra komputerowa wykonana na silniku Unity, przy użyciu modeli zewnętrznych.</p>
       </li>
     </ul>
   </main>
@@ -97,6 +117,30 @@
     © 2025 Gabriela Krajewska | Portfolio
   </footer>
 
+  <script>
+    let currentLang = 'pl';
+    function toggleLang() {
+      if (currentLang === 'pl') {
+        document.getElementById('subtitle').textContent = 'Project Portfolio';
+        document.getElementById('projects-title').textContent = 'My Projects';
+        document.getElementById('proj1-title').textContent = '🎨 Project 1 – Blender Animation';
+        document.getElementById('proj1-desc').textContent = 'Rendered 3D animation made in Blender using external models.';
+        document.getElementById('proj2-title').textContent = '💼 Project 2 – "Meowgic" Video Game';
+        document.getElementById('proj2-desc').textContent = 'Video game made in Unity engine using external models.';
+        document.querySelector('.lang-toggle').textContent = 'PL';
+        currentLang = 'en';
+      } else {
+        document.getElementById('subtitle').textContent = 'Portfolio projektów';
+        document.getElementById('projects-title').textContent = 'Moje projekty';
+        document.getElementById('proj1-title').textContent = '🎨 Projekt 1 – Animacja w Blenderze';
+        document.getElementById('proj1-desc').textContent = 'Wyrenderowana animacja 3D wykonana w Blenderze, przy użyciu modeli zewnętrznych.';
+        document.getElementById('proj2-title').textContent = '💼 Projekt 2 – "Miaugicznie" gra komputerowa';
+        document.getElementById('proj2-desc').textContent = 'Gra komputerowa wykonana na silniku Unity, przy użyciu modeli zewnętrznych.';
+        document.querySelector('.lang-toggle').textContent = 'EN';
+        currentLang = 'pl';
+      }
+    }
+  </script>
+
 </body>
 </html>
-

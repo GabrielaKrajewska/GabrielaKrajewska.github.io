@@ -1,2 +1,2 @@
-# GabrielaKrajewska.github.io
+# GabrielaKrajewska1.github.io
  portfolio
